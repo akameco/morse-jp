@@ -22,7 +22,7 @@ describe("morse-jp-test", ()=> {
             let word = 'こんにちわ';
             let morse = '---- .-.-. -.-. ..-. -.-';
             assert(morseJp.morse2word(morse) === word);
-        })
+        });
 
         it("'----*.-.-.*-.-.*..-.*-.-'が'こんにちわ'になること", ()=> {
             let morseJp = new MorseJp();
@@ -30,6 +30,6 @@ describe("morse-jp-test", ()=> {
             let morse = '----*.-.-.*-.-.*..-.*-.-';
             let separate = '*';
             assert(morseJp.morse2word(morse, separate) === word);
-        })
+        });
     });
 });
