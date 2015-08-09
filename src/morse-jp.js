@@ -15,7 +15,21 @@ export default class MorseJp {
      * @param {string} lang
      */
     constructor(lang = 'ja') {
-        this.loadFile(lang);
+        this.initTable(lang);
+    }
+
+
+    /**
+     * テーブルを初期化する
+     * @param {string} lang
+     */
+    initTable(lang) {
+        this.table = this.loadFile(lang);
+        for (let k in this.table) {
+            if (this.table.hasOwnProperty(k)) {
+                this.reverseTable[this.table[k]] = k;
+            }
+        }
     }
 
     /**
@@ -24,30 +38,25 @@ export default class MorseJp {
     loadFile(lang) {
         let file = path.resolve(__dirname, `../locales/${lang}.json`);
         if (fs.existsSync(file)) {
-            this.table = JSON.parse(fs.readFileSync(file, 'utf8'));
-            for (let k in this.table) {
-                if (this.table.hasOwnProperty(k)) {
-                    this.reverseTable[this.table[k]] = k;
-                }
-            }
+            return JSON.parse(fs.readFileSync(file, 'utf8'));
         } else {
             console.error(`Failed to read ${lang}.json`);
-            process.exit(1);
         }
     }
 
     /**
      * テキストをモールス信号へ変換
      * @param {string} word
+     * @param {string} separate
      * @returns {string}
      */
-    word2morse(word) {
+    word2morse(word, separate = ' ') {
         let target = word.split('');
-        let morse = [];
+        let result = [];
         for (let c of target) {
-            morse.push(this.table[c]);
+            result.push(this.table[c]);
         }
-        return morse.join(" ");
+        return result.join(separate);
     }
 
     /**
@@ -58,10 +67,10 @@ export default class MorseJp {
      */
     morse2word(morse, separate = ' ') {
         let target = morse.split(separate);
-        let word = [];
+        let result = [];
         for (let c of target) {
-            word.push(this.reverseTable[c]);
+            result.push(this.reverseTable[c]);
         }
-        return word.join("");
+        return result.join("");
     }
 }

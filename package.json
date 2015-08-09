@@ -16,7 +16,7 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps inline",
     "watch": "babel src --out-dir lib --watch --source-maps inline",
-    "test": " npm run build && mocha test/**/*.js"
+    "test": "npm run build && mocha test/**/*.js"
   },
   "author": "akameco",
   "license": "MIT",
