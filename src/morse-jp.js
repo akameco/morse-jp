@@ -18,7 +18,6 @@ export default class MorseJp {
         this.initTable(lang);
     }
 
-
     /**
      * テーブルを初期化する
      * @param {string} lang
@@ -65,10 +64,14 @@ export default class MorseJp {
      * モールス信号をテキストへ変換
      * @param {string} morse
      * @param {string} separate
+     * @param {string} dash
+     * @param {string} dot
      * @returns {string}
      */
-    morse2word(morse, separate = ' ') {
-        let target = morse.split(separate);
+    morse2word(morse, {separate = " ", dash = "\\-", dot = "\\."} = {}) {
+        let reDash = new RegExp(dash, 'g');
+        let reDot = new RegExp(dot, 'g');
+        var target = morse.replace(reDash, '-').replace(reDot, '.').split(separate);
         let result = [];
         for (let c of target) {
             result.push(this.reverseTable[c]);

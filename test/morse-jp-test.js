@@ -41,7 +41,14 @@ describe("morse-jp-test", ()=> {
 
         it("'----*.-.-.*-.-.*..-.*-.-'が'こんにちわ'になること", ()=> {
             let morse = '----*.-.-.*-.-.*..-.*-.-';
-            assert(morseJp.morse2word(morse, '*') === word);
+            assert(morseJp.morse2word(morse, {separate: '*'}) === word);
+        });
+
+        context("dashに'は'dotに'い'を引数にとるとき", ()=> {
+            it("'はははは いはいはい はいはい いいはい はいは'がこんにちわになること", ()=> {
+                let morse = 'はははは いはいはい はいはい いいはい はいは';
+                assert(morseJp.morse2word(morse, {dash: 'は', dot: 'い'}) === word);
+            });
         });
     });
 });
