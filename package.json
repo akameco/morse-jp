@@ -2,7 +2,16 @@
   "name": "morse-jp",
   "version": "0.0.1",
   "description": "This is a tool that converts 'Text' and 'Morse cord' to each other.",
+  "homepage": "https://github.com/akameco/morse-jp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akameco/morse-jp.git"
+  },
   "main": "lib/morse-jp.js",
+  "files": [
+    "lib",
+    "locales"
+  ],
   "directories": {
     "test": "test"
   },
@@ -19,6 +28,5 @@
     "test": "npm run build && mocha test/**/*.js"
   },
   "author": "akameco",
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }
