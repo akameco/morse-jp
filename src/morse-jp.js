@@ -7,32 +7,33 @@ import path from 'path'
  * @class MorseJp
  */
 export default class MorseJp {
+    table = {};
+    reverseTable = {};
+
     /**
      *
      * @param {string} lang
      */
     constructor(lang = 'ja') {
-        this.lang = lang;
+        this.loadFile(lang);
     }
 
     /**
-     *
+     * localesディレクトリからモールス信号の定義ファイルをロードする
      */
-    get table() {
-        let file = path.resolve(__dirname, '../locales/ja.json');
-        return JSON.parse(fs.readFileSync(file, 'utf8'));
-    }
-
-    /**
-     *
-     * @returns {{}}
-     */
-    get reverseTable() {
-        let obj = {};
-        for (let k in this.table) {
-            obj[this.table[k]] = k;
+    loadFile(lang) {
+        let file = path.resolve(__dirname, `../locales/${lang}.json`);
+        if (fs.existsSync(file)) {
+            this.table = JSON.parse(fs.readFileSync(file, 'utf8'));
+            for (let k in this.table) {
+                if (this.table.hasOwnProperty(k)) {
+                    this.reverseTable[this.table[k]] = k;
+                }
+            }
+        } else {
+            console.error(`Failed to read ${lang}.json`);
+            process.exit(1);
         }
-        return obj;
     }
 
     /**
@@ -43,7 +44,6 @@ export default class MorseJp {
     word2morse(word) {
         let target = word.split('');
         let morse = [];
-
         for (let c of target) {
             morse.push(this.table[c]);
         }
@@ -59,7 +59,6 @@ export default class MorseJp {
     morse2word(morse, separate = ' ') {
         let target = morse.split(separate);
         let word = [];
-
         for (let c of target) {
             word.push(this.reverseTable[c]);
         }
