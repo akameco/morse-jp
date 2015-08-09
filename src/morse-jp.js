@@ -47,14 +47,16 @@ export default class MorseJp {
     /**
      * テキストをモールス信号へ変換
      * @param {string} word
-     * @param {string} separate
+     * @param separate
+     * @param dash
+     * @param dot
      * @returns {string}
      */
-    word2morse(word, separate = ' ') {
+    word2morse(word, {separate = ' ', dash = '-', dot = '.'} = {}) {
         let target = word.split('');
         let result = [];
         for (let c of target) {
-            result.push(this.table[c]);
+            result.push(this.table[c].replace(/\-/g, dash).replace(/\./g, dot));
         }
         return result.join(separate);
     }

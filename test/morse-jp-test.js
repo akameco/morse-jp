@@ -15,10 +15,18 @@ describe("morse-jp-test", ()=> {
             let morse = '---- .-.-. -.-. ..-. -.-';
             assert(morseJp.word2morse(word) === morse);
         });
+        context('separateに*を引数にとるとき', ()=> {
+            it("'こんにちわ'が'----*.-.-.*-.-.*..-.*-.-'になること", ()=> {
+                let morse = '----*.-.-.*-.-.*..-.*-.-';
+                assert(morseJp.word2morse(word, {separate: '*'}) === morse);
+            });
+        });
 
-        it("'こんにちわ'が'----*.-.-.*-.-.*..-.*-.-'になること", ()=> {
-            let morse = '----*.-.-.*-.-.*..-.*-.-';
-            assert(morseJp.word2morse(word, '*') === morse);
+        context("dashに'は'dotに'い'を引数にとるとき", ()=> {
+            it("'こんにちわ'が'はははは いはいはい はいはい いいはい はいは'になること", ()=> {
+                let morse = 'はははは いはいはい はいはい いいはい はいは';
+                assert(morseJp.word2morse(word, {dash: 'は', dot: 'い'}) === morse);
+            });
         });
     });
 
