@@ -15,6 +15,13 @@ describe("morse-jp-test", ()=> {
             let morse = '---- .-.-. -.-. ..-. -.-';
             assert(morseJp.word2morse(word) === morse);
         });
+
+        it("'10'が'.---- -----'になること", ()=> {
+            let morse = '.---- -----';
+            let word = '10';
+            assert(morseJp.word2morse(word) === morse);
+        });
+
         context('separateに*を引数にとるとき', ()=> {
             it("'こんにちわ'が'----*.-.-.*-.-.*..-.*-.-'になること", ()=> {
                 let morse = '----*.-.-.*-.-.*..-.*-.-';

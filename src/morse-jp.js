@@ -55,7 +55,7 @@ export default class MorseJp {
         let target = word.split('');
         let result = [];
         for (let c of target) {
-            result.push(this.table[c].replace(/\-/g, dash).replace(/\./g, dot));
+            result.push(this.table[c].replace(/\-/g, dash).replace(/\./g, dot).replace(/ /g, separate));
         }
         return result.join(separate);
     }
