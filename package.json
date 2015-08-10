@@ -1,0 +1,25 @@
+{
+  "name": "morse-jp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akameco/morse-jp.git"
+  },
+  "author": "akameco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akameco/morse-jp/issues"
+  },
+  "homepage": "https://github.com/akameco/morse-jp#readme",
+  "devDependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "react": "^0.13.3"
+  }
+}
