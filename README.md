@@ -1,4 +1,4 @@
-# morse-jp
+# morse-jp[![Build Status](https://travis-ci.org/akameco/morse-jp.svg)](https://travis-ci.org/akameco/morse-jp)
 
 This is a tool that converts 'Text' and 'Morse cord' to each other.
 
