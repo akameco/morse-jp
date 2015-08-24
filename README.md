@@ -1,8 +1,10 @@
-# morse-jp[![Build Status](https://travis-ci.org/akameco/morse-jp.svg)](https://travis-ci.org/akameco/morse-jp)
+# morse-jp
 
-This is a tool that converts 'Text' and 'Morse cord' to each other.
-
+This is a tool that converts 'Text' and 'Morse cord' to each other.  
 テキストとモールス信号のコードを相互に変換するツール.
+
+[![Build Status][travis-image]][travis-url]
+[![NPM package][npm-image]][npm-url]
 
 ## Installation
 
@@ -50,3 +52,8 @@ npm test
 
 ## License
 MIT
+
+[travis-image]: https://travis-ci.org/akameco/morse-jp.svg
+[travis-url]: https://travis-ci.org/akameco/morse-jp
+[npm-url]: https://www.npmjs.com/package/morse-jp
+[npm-image]: https://badge.fury.io/js/morse-jp.svg
