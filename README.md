@@ -1,5 +1,7 @@
 # morse-jp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/akameco/morse-jp.svg)](https://greenkeeper.io/)
+
 This is a tool that converts 'Text' and 'Morse cord' to each other.  
 テキストとモールス信号のコードを相互に変換するツール.
 
